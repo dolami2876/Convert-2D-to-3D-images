@@ -35,7 +35,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 try:
     model = DepthAnythingV2(encoder="vitl")
-    model.load_state_dict(torch.load("depth_anything_v2_vitl_datanyu.pth", map_location=DEVICE))
+    model.load_state_dict(torch.load("depth_anything_v2_vitl.pth", map_location=DEVICE))
     model.to(DEVICE).eval()
     print(f"Đã tải model thành công, sử dụng device: {DEVICE}")
 except Exception as e:
