@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB to 3D Model Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1 class="app-title">RGB to 3D Model Converter</h1>
+        <p class="app-subtitle">Chuyển đổi ảnh RGB thông thường sang mô hình 3D point cloud hoặc mesh</p>
+    </header>
+    
+    <div class="container">
+        <div class="panel slide-up">
+            <div class="panel-header">
+                <h2 class="panel-title">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    Tải lên ảnh
+                </h2>
+            </div>
+            <div class="panel-content">
+                <div class="file-upload-container">
+                    <div id="uploadWrapper" class="file-input-wrapper">
+                        <div class="upload-content">
+                            <i class="fas fa-image upload-icon"></i>
+                            <p class="upload-text">Kéo thả hoặc chọn ảnh của bạn</p>
+                            <p class="upload-instructions">Định dạng: JPG, PNG, JPEG</p>
+                        </div>
+                        <input type="file" id="fileInput" accept="image/*">
+                        <div id="imagePreview"></div>
+                        <div class="image-preview-overlay">
+                            <i class="fas fa-sync"></i> Thay đổi ảnh
+                        </div>
+                    </div>
+                    
+                    <div class="options-container">
+                        <h3 class="options-title">TÙY CHỌN NÂNG CAO</h3>
+                        <div class="option-row">
+                            <div class="option-label">
+                                <label class="checkbox-container">
+                                    <span>Tạo 3D Mesh</span>
+                                    <input type="checkbox" id="generateMesh" checked>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="tooltip" title="Tạo mesh sẽ mất nhiều thời gian hơn nhưng cung cấp chất lượng mô hình 3D tốt hơn">
+                                    <i class="fas fa-info info-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="uploadBtn" class="button">
+                        <i class="fas fa-cube"></i>
+                        Tạo mô hình 3D
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel slide-up" style="animation-delay: 0.2s;">
+            <div class="panel-header">
+                <h2 class="panel-title">
+                    <i class="fas fa-cubes"></i>
+                    Xem trước mô hình 3D
+                </h2>
+            </div>
+            <div class="panel-content">
+                <div id="viewer"></div>
+                
+                <div class="view-controls-container">
+                    <div class="model-info">
+                        <span>Loại mô hình:</span>
+                        <div class="model-type-badge">
+                            <span id="modelType">Point Cloud</span>
+                        </div>
+                    </div>
+                    
+                    <div class="view-controls">
+                        <span class="toggle-label">Point Cloud</span>
+                        <label class="switch">
+                            <input type="checkbox" id="viewModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="toggle-label">Mesh</span>
+                    </div>
+                </div>
+
+                <div class="controls-info">
+                    <div class="control-item"><i class="fas fa-mouse"></i> Click và kéo để xoay</div>
+                    <div class="control-item"><i class="fas fa-expand-arrows-alt"></i> Cuộn chuột để phóng to/nhỏ</div>
+                    <div class="control-item"><i class="fas fa-hand-paper"></i> Shift+Click để di chuyển</div>
+                </div>
+                
+                <div class="stats-container fade-in" style="animation-delay: 0.5s;">
+                    <div class="stat-card">
+                        <div class="stat-value" id="pointCount">-</div>
+                        <div class="stat-label">Số điểm</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="faceCount">-</div>
+                        <div class="stat-label">Số mặt</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="processingTime">-</div>
+                        <div class="stat-label">Thời gian xử lý</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.152.2/build/three.module.js",
+            "three/examples/jsm/controls/OrbitControls.js": "https://unpkg.com/three@0.152.2/examples/jsm/controls/OrbitControls.js"
+        }
+    }
+    </script>
+    <script type="module" src="static/app.js"></script>
+</body>
+</html>
