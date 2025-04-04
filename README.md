@@ -37,7 +37,7 @@ pip install -r requirements.txt
 ```
 3. **Run the server**
 ```bash
-python app.py
+python main.py
 ```
 
 ---
@@ -52,7 +52,7 @@ Convert-2D-to-3D-images/
 │
 ├── Depth-Anything-V2/         # DepthAnythingV2 model
 │
-├── app.py                     # Main FastAPI backend
+├── main.py                     # Main FastAPI backend
 ├── requirements.txt
 └── depth_anything_v2_vitl.pth # Pretrained model weights (ViT-L)
 ```
