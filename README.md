@@ -74,6 +74,7 @@ Returns:
 
 ---
 ## Example Result
-<p align="center"> <img src="https://github.com/dolami2876/Convert-2D-to-3D-images/static/demo-preview.gif" alt="Demo Preview" width="600"/> </p>
-
+<p align="center">
+  <img src="static/demo-preview.gif" width="600"/>
+</p>
 
