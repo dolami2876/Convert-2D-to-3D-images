@@ -75,6 +75,10 @@ Returns:
 ---
 ## Example Result
 <p align="center">
-  <img src="static/demo-preview.gif" width="600"/>
+  <img src="https://github.com/dolami2876/Convert-2D-to-3D-images/blob/main/static/demo-preview.gif.gif" width="600"/>
 </p>
+---
+
+# Thanks for watching!
+
 
