@@ -60,6 +60,7 @@ Convert-2D-to-3D-images/
 
 ## API Endpoint
 POST /upload
+
 Form-Data Parameters:
 
 **file**: Image file (.jpg, .png, etc.)
